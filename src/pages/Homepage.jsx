@@ -1,4 +1,4 @@
-import Herosec from "../component/HeroSec";
+import Herosec from "../component/Herosec";
 import Product from "../component/Product";
 
 
@@ -29,7 +29,7 @@ function Homepage() {
 
     return (
         <div className="flex flex-col gap-4 justify-start items-center">
-            <div>
+            <div className="my-8">
                 <Herosec />
             </div>
             <div className="flex flex-col items-center">

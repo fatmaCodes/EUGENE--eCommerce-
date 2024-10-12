@@ -1,10 +1,6 @@
-import Navbar from "./component/Navbar";
-import Footer from "./component/Footer";
-import Homepage from "./pages/Homepage";
-import CategoryPage from "./pages/Category";
-import WishList from "./pages/WishList";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import { Outlet } from "react-router"
+import Navbar from "./component/Navbar"
+import Footer from "./component/Footer"
 
 function App() {
     return (
@@ -14,7 +10,7 @@ function App() {
             <Navbar />
           </header>
           <main className="flex-grow">
-            <CategoryPage/>
+            <Outlet/>
           </main>
           <footer>
             <Footer />
