@@ -3,6 +3,6 @@ export default function changeLink(target){
         if (currentPage) {
             currentPage.classList.remove("eugene-nav-active");
         }
-        document.querySelector(target).classList.add("eugene-nav-active")
+        document.querySelector(target)?.classList.add("eugene-nav-active")
 
 }

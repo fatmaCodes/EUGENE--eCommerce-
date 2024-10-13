@@ -10,6 +10,8 @@ import CategoryPage from "./pages/Category.jsx"
 import Wishlist from "./pages/WishList.jsx"
 import Cart from './pages/Cart.jsx'
 import CustomProduct from './pages/CustomProduct.jsx'
+import { Provider } from 'react-redux'
+import store from './store/store.js'
 
 const router = createBrowserRouter([
   {
@@ -49,7 +51,8 @@ const router = createBrowserRouter([
 ])
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <RouterProvider router={router}/>
-  </StrictMode>,
+  <Provider store={store}>  
+     <RouterProvider router={router}/>
+  </Provider>
+ 
 )
