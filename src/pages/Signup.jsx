@@ -5,6 +5,9 @@ import auth from "../backend/auth";
 import { useDispatch } from "react-redux";
 import { login } from "../store/authSlice";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import loading from "../assets/loading.gif"
+
 
 function Signup() {
 
@@ -14,8 +17,11 @@ function Signup() {
 
     const formRef = useRef(null);
 
+    const [isDialogOpen,setIsDialogOpen]  = useState(false)
+
     const handleSignup = async (e) => {
         e.preventDefault();
+        setIsDialogOpen(true);
         const name = String(formRef.current[0].value)
         const email = String(formRef.current[1].value)
         const password = String(formRef.current[2].value)
@@ -30,7 +36,7 @@ function Signup() {
 
             const session = await auth.createAccount({email,password,name})
 
-            console.log(session)
+            setIsDialogOpen(false);
 
             if (session) {
                 const userData = await auth.getCurrentUser()
@@ -39,14 +45,23 @@ function Signup() {
                     navigate("/")
                 }
             } else {
-                alert("check your email/password if its correct")
+                alert("looks like u already with us please login")
             }
         } catch (error) {
             alert(error)
+            setIsDialogOpen(false);
         }
     }
 
     return (
+        <>
+         <dialog className={`h-screen w-screen flex justify-center items-center bg-slate-50/30 ${isDialogOpen?"":'hidden'}`}>
+                <div className="w-full flex flex-col justify-center items-center">
+                    <img src={loading} alt="" />
+                    <h1 className="text-slate-900 text-3xl font-bold">PLEASE WAIT </h1>
+                </div>
+
+            </dialog>
         <section className="min-h-screen min-w-screen bg-[#93785B] flex flex-col justify-between ">
             <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
                 <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
@@ -84,6 +99,7 @@ function Signup() {
                 </div>
             </div>
         </section>
+        </>
 
     )
 }

@@ -26,7 +26,7 @@ export class Auth {
                 return userAccount
             }
         } catch (e) {
-            console.log("USER ACCOUNT :: SIGNUP ERROR ;; APPWRITE "+E)
+            console.log("USER ACCOUNT :: SIGNUP ERROR ;; APPWRITE "+e)
         }
     }
 
