@@ -1,8 +1,5 @@
 import Card from "../component/Card"
 import Blonde from '../assets/blondeHead.jpg'
-import fashion from "../assets/fashion.webp"
-import browns from "../assets/browns.jpg"
-import mix from "../assets/mix.jpg"
 import brownn from "../assets/brownn.png"
 import reds from "../assets/reds.png"
 import silver from "../assets/silver.png"
@@ -15,7 +12,17 @@ import stream from "../assets/stream.png"
 import articles from "../assets/articles.png"
 import help from "../assets/help.png"
 import gift from "../assets/gift.png"
+import { useEffect } from "react"
+import changeLink from "../component/Navbar/changeLink"
+
 function CategoryPage() {
+  
+  
+  useEffect(()=>{
+    changeLink("#category")
+  },[])
+  
+  
   return (
     <>
       <div className="h-full w-full flex flex-col items-center gap-5 p-5">

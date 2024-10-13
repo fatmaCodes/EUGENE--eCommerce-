@@ -8,6 +8,7 @@ import Login from "./pages/Login.jsx"
 import Signup from "./pages/Signup.jsx"
 import CategoryPage from "./pages/Category.jsx"
 import Wishlist from "./pages/WishList.jsx"
+import Cart from './pages/Cart.jsx'
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
         path:"/wishlist",
         element:<Wishlist/>
       },
+      {
+        path:"/cart",
+        element:<Cart/>
+      }
     ]
   }
 ])

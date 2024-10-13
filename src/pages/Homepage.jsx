@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import Herosec from "../component/Herosec";
 import Product from "../component/Product";
+import changeLink from "../component/Navbar/changeLink";
 
 
 function Homepage() {
@@ -25,6 +27,10 @@ function Homepage() {
           price:200
         }
       ]
+
+      useEffect(()=>{
+        changeLink("#home")
+      },[])
     
 
     return (

@@ -1,8 +1,15 @@
+import { useEffect } from "react"
 import logo from "../assets/logo.png"
 import { Link } from "react-router-dom"
+import changeLink from "../component/Navbar/changeLink"
 
 
 function Login() {
+
+    useEffect(()=>{
+        changeLink("#login")
+    },[])
+
     return (
         <>        <section className="min-h-screen min-w-screen bg-[#a4988b] flex flex-col justify-between ">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">

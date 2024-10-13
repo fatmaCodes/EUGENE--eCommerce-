@@ -6,3 +6,7 @@
     font-family: eduBold;
     src: url(./assets/fonts/EDUbOLD.ttf);
 }
+
+.eugene-nav-active{
+    color: aqua;
+}
