@@ -9,6 +9,7 @@ import Signup from "./pages/Signup.jsx"
 import CategoryPage from "./pages/Category.jsx"
 import Wishlist from "./pages/WishList.jsx"
 import Cart from './pages/Cart.jsx'
+import CustomProduct from './pages/CustomProduct.jsx'
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path:"/cart",
         element:<Cart/>
+      },
+      {
+        path:"/categories/:categ",
+        element:<CustomProduct/>
       }
     ]
   }

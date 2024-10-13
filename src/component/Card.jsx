@@ -1,11 +1,22 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Card({img,text}) {
+
+  const navigate = useNavigate();
+
+  const handleClick = ()=>{
+    navigate(`/categories/${text.toLowerCase()}`)
+  }
+
+
   return (
-    <div className='h-[13rem] w-[16rem] rounded-xl p-1 bg-slate-50'>
+    <button 
+    onClick={handleClick}
+    className='h-[13rem] w-[16rem] rounded-xl p-1 bg-slate-50'>
         <img src={img} alt="" className='rounded-xl w-full max-h-[85%]'/>
         <p className='w-full font-[eduBold] my-2 text-center'>{text}</p>
-    </div>
+    </button>
   )
 }
 
