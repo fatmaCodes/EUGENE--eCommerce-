@@ -25,7 +25,7 @@ function CategoryPage() {
   
   return (
     <>
-      <div className="h-full w-full flex flex-col items-center gap-5 p-5">
+      <div className=" bg-[#2E151B] h-full w-full flex flex-col items-center gap-5 p-5">
         <h1 className="text-slate-100 ">
           <b> COLOR FAMILY </b>
         </h1>
