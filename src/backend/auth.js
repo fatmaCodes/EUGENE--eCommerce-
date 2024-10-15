@@ -12,7 +12,6 @@ export class Auth {
             .setProject(conf.projectId)
         this.account = new Account(this.client)
 
-        console.log(import.meta.env.VITE_PUBLIC_APPWRITE_URL)
     }
 
     async createAccount({email, password, name}) {
@@ -31,7 +30,6 @@ export class Auth {
     }
 
     async loginUser({email,password}) {
-        console.log(typeof email)
         try {
             return await this.account.createEmailPasswordSession(email, password);
         } catch (error) {
