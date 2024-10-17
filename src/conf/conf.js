@@ -4,6 +4,7 @@ const conf = {
     dbId:String(import.meta.env.VITE_PUBLIC_DB_ID),
     collectionId:String(import.meta.env.VITE_PUBLIC_COLLECTION_ID),
     bucketId:String(import.meta.env.VITE_PUBLIC_BUCKET_ID),
+    adminId:String(import.meta.env.VITE_ADMIN_ID)
 }
 
 export default conf

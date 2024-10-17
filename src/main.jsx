@@ -12,54 +12,93 @@ import CustomProduct from './pages/CustomProduct.jsx'
 import { Provider } from 'react-redux'
 import store from './store/store.js'
 import AuthLayout from './component/AuthLayout.jsx'
+import Admin from './admin/Admin.jsx'
+import Root from './Root.jsx'
+import AdminProduct from './admin/AdminProduct.jsx'
+import AddProduct from './admin/AddProduct.jsx'
+import ProductPage from './pages/ProductPage.jsx'
+
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Root />,
     children: [
       {
         path: "/",
-        element: <Homepage />
-      },
-      {
-        path: "/login",
-        element: <Login />
-      },
-      {
-        path: "/signup",
-        element: <Signup />
-      },
-      {
-        path: "/categories",
-        element: <AuthLayout>
-          <CategoryPage />
-        </AuthLayout>
+        element: <App />,
+        children: [
+          {
+            path: "/",
+            element: <Homepage />
+          },
+          {
+            path: "/login",
+            element: <Login />
+          },
+          {
+            path: "/signup",
+            element: <Signup />
+          },
+          {
+            path: "/categories",
+            element: <AuthLayout>
+              <CategoryPage />
+            </AuthLayout>
 
+          },
+          {
+            path: "/wishlist",
+            element: <AuthLayout>
+              <Wishlist />
+            </AuthLayout>
+
+          },
+          {
+            path: "/cart",
+            element: <AuthLayout>
+              <Cart />
+            </AuthLayout>
+
+          },
+          {
+            path: "/categories/:categ",
+            element: <AuthLayout>
+              <CustomProduct />
+            </AuthLayout>
+          },
+          {
+            path:"/product/:pid",
+            element:<AuthLayout>
+            <ProductPage />
+          </AuthLayout>
+          }
+        ]
       },
       {
-        path: "/wishlist",
+        path: "/admin",
         element: <AuthLayout>
-          <Wishlist />
-        </AuthLayout>
+          <Admin />
+        </AuthLayout>,
+        children:[
+          {
+            path:"/admin/categories",
+            element:<AuthLayout>
+              <AdminProduct/>
+            </AuthLayout>
+          },
+          {
+            path:"/admin/addproducts",
+            element:<AuthLayout>
+              <AddProduct/>
+            </AuthLayout>
 
-      },
-      {
-        path: "/cart",
-        element: <AuthLayout>
-          <Cart />
-        </AuthLayout>
+          }
+        ]
+      }]
+  },
 
-      },
-      {
-        path: "/categories/:categ",
-        element: <AuthLayout>
-          <CustomProduct />
-        </AuthLayout>
 
-      }
-    ]
-  }
 ])
 
 createRoot(document.getElementById('root')).render(

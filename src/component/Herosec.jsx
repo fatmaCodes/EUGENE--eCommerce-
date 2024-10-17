@@ -1,4 +1,3 @@
-import img from "../assets/hero.png"
 function Herosec() {
     return(
         <>
@@ -16,7 +15,7 @@ function Herosec() {
             </a> 
         </div>
         <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-            <img src={img} alt="mockup" className="h-[70%]"></img>
+            <img src="" alt="mockup" className="h-[70%]"></img>
         </div>                
     </div>
 </section>
