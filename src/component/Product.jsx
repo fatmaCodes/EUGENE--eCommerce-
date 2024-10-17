@@ -1,6 +1,9 @@
-import React from 'react'
+import database from "../backend/DataBase"
 
-function Product({img,name,price}) {
+function Product({id,img_id,name,price}) {
+
+    const img = database.getFilePreview(img_id);
+
     return (
         <div class="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
             <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#">

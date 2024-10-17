@@ -4,23 +4,25 @@ import Product from '../component/Product'
 import database from '../backend/DataBase';
 import { Query } from 'appwrite';
 import loading from "../assets/loading.gif"
+import { name } from 'thirdweb/extensions/common';
 
 function CustomProduct() {
 
   const { categ } = useParams();
 
+  const [products,setProducts] = useState([]);
 
 
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-  let products = []
 
   const queries = [Query.equal("product_category",categ)];
 
   async function productsLoad() {
     setIsDialogOpen(true);
 
-    products = await database.getProducts();
+    let _products = await database.getProducts(queries);
+
+    setProducts(_products.documents)
 
     setIsDialogOpen(false)
   }
@@ -28,9 +30,7 @@ function CustomProduct() {
 
   useEffect(() => {
     productsLoad()
-    console.log(categ);
-    
-  }, [])
+  }, [categ])
 
 
   return (
@@ -47,8 +47,11 @@ function CustomProduct() {
           OUR {categ.toUpperCase()} PRODUCTS
         </h1>
         <div className='w-full p-4 flex flex-wrap justify-center'>
-          {products.length>0?(products.map(() => {
-            return <Product />
+          
+          {products.length>0?(products.map((product) => {
+            console.log(product);
+            
+            return <Product id={product.$id} name={product.product_name} price={product.price} img_id={product.product_image}/>
           })):(
             <h1>
               NO PRODUCTS AVAILABLE FOR THIS CATEGORY RIGHT NOW

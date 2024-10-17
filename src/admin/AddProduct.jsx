@@ -22,7 +22,7 @@ function AddProduct() {
 
     async function handleAddProduct(data){
         
-        const img = await database.uploadFile(data.image[0]);
+        const img = await database.uploadFile(data.product_image[0]);
 
         if(img)
         {
