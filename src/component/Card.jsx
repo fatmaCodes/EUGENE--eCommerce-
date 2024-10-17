@@ -1,12 +1,12 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-function Card({img,text}) {
+function Card({img,text,categ}) {
 
   const navigate = useNavigate();
 
   const handleClick = ()=>{
-    navigate(`/categories/${text.toLowerCase()}`)
+    navigate(`/categories/${categ}`)
   }
 
 

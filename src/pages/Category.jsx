@@ -30,15 +30,15 @@ function CategoryPage() {
           <b> COLOR FAMILY </b>
         </h1>
         <div className="w-full p-2 h-[25%] flex gap-16 justify-center">
-          <Card img={Blonde} text="BLONDES" />
-          <Card img={fantasy} text="FANTASY SHADES" />
-          <Card img={brownn} text="BROWNS" />
-          <Card img={reds} text="REDS & PLUMS" />
+          <Card img={Blonde} text="BLONDES"  categ="blonde"/>
+          <Card img={fantasy} text="FANTASY SHADES" categ="fantasy"/>
+          <Card img={brownn} text="BROWNS" categ="brown"/>
+          <Card img={reds} text="REDS & PLUMS" categ="red"/>
         </div>
         <div className="w-full p-2 h-[25%] flex gap-16 justify-center">
-          <Card img={silver} text="GREY & SILVER" />
-          <Card img={black} text="BLACK" />
-          <Card img={haircare} text="MAINTENANCE" />
+          <Card img={silver} text="GREY & SILVER" categ="silver"/>
+          <Card img={black} text="BLACK" categ=""/>
+          <Card img={haircare} text="MAINTENANCE" categ="black"/>
           <Card img={all} />
         </div>
 

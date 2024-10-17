@@ -5,9 +5,6 @@ function AuthLayout({children}) {
   
     const userStatus = useSelector((state)=>state.authReducer.userStatus)
 
-    console.log(userStatus);
-    
-
     return (
     <>
     {userStatus?children:(

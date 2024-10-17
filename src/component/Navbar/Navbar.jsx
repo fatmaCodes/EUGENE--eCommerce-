@@ -42,30 +42,30 @@ function Navbar() {
                         </svg>
                     </button>
                     <div className="hidden  w-full md:block md:w-auto" id="navbar-multi-level">
-                        <ul className="flex flex-col font-medium p-3 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                        <ul className="flex flex-col font-medium p-3 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:border-gray-700">
                             {!userStatus ? (
                                 <>
                                 <li>
-                                        <Link to={"/login"} className="block py-2 px-3 text-slate-900 dark:text-slate-50 bg-blue-700 rounded md:bg-transparent md:p-0 dark:bg-blue-600 md:dark:bg-transparent" id="login">Login/Signup</Link >
+                                        <Link to={"/login"} className="block py-2 px-3 text-slate-900 bg-blue-700 rounded md:bg-transparent md:p-0 dark:bg-blue-600 md:dark:bg-transparent" id="login">Login/Signup</Link >
                                     </li>
                                 </>
                             ) : (
                                 <>
                                     <li>
-                                        <Link to={"/"} className="block py-2 px-3 text-slate-900 bg-blue-700 rounded md:bg-transparent dark:text-slate-50 md:p-0 dark:bg-blue-600 md:dark:bg-transparent" id="home">Home</Link>
+                                        <Link to={"/"} className="block py-2 px-3 text-slate-900 bg-blue-700 rounded md:bg-transparent md:p-0 dark:bg-blue-600 md:dark:bg-transparent" id="home">Home</Link>
 
                                     </li>
                                     <li>
-                                        <button onClick={handleLogout} className="block py-2 px-3 text-slate-900 bg-blue-700 rounded md:bg-transparent dark:text-slate-50 md:p-0 dark:bg-blue-600 md:dark:bg-transparent" id="login">Logout</button>
+                                        <button onClick={handleLogout} className="block py-2 px-3 text-slate-900 bg-blue-700 rounded md:bg-transparent md:p-0 dark:bg-blue-600 md:dark:bg-transparent" id="login">Logout</button>
                                     </li>
                                     <li>
-                                        <Link to={"/categories"} className="block py-2 px-3 text-slate-900 bg-blue-700 rounded dark:text-slate-50 md:bg-transparent md:p-0 dark:bg-blue-600 md:dark:bg-transparent" id="category">Categories</Link>
+                                        <Link to={"/categories"} className="block py-2 px-3 text-slate-900 bg-blue-700 rounded md:bg-transparent md:p-0 dark:bg-blue-600 md:dark:bg-transparent" id="category">Categories</Link>
                                     </li>
                                     <li>
-                                        <Link to={"/wishlist"} className="block py-2 px-3 text-slate-900 bg-blue-700 rounded dark:text-slate-50 md:bg-transparent md:p-0 dark:bg-blue-600 md:dark:bg-transparent" id="wishlist">Wishlist</Link>
+                                        <Link to={"/wishlist"} className="block py-2 px-3 text-slate-900 bg-blue-700 rounded md:bg-transparent md:p-0 dark:bg-blue-600 md:dark:bg-transparent" id="wishlist">Wishlist</Link>
                                     </li>
                                     <li>
-                                        <Link to={"/cart"} className="block py-2 px-3 text-slate-900 bg-blue-700 rounded dark:text-slate-50 md:bg-transparent md:p-0 dark:bg-blue-600 md:dark:bg-transparent" id="cart">Cart</Link>
+                                        <Link to={"/cart"} className="block py-2 px-3 text-slate-900 bg-blue-700 rounded md:bg-transparent md:p-0 dark:bg-blue-600 md:dark:bg-transparent" id="cart">Cart</Link>
                                     </li>
                                 </>
 

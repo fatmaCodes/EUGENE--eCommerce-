@@ -5,24 +5,31 @@ import database from '../backend/DataBase';
 import { Query } from 'appwrite';
 import loading from "../assets/loading.gif"
 
-function CustomProduct({ category }) {
+function CustomProduct() {
 
   const { categ } = useParams();
+
+
 
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   let products = []
 
+  const queries = [Query.equal("product_category",categ)];
+
   async function productsLoad() {
     setIsDialogOpen(true);
 
-    products = await database.getProducts([Query.equal("product_category", category)]);
+    products = await database.getProducts();
 
     setIsDialogOpen(false)
   }
 
+
   useEffect(() => {
     productsLoad()
+    console.log(categ);
+    
   }, [])
 
 
