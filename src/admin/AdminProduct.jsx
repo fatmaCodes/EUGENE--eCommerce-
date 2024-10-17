@@ -19,7 +19,7 @@ function AdminProduct() {
       setProducts(_products.documents)
     }
   
-    useEffect(async () => {
+    useEffect(() => {
       if (userData.$id != conf.adminId) {
         alert("you are not admin")
         navigate("/")
