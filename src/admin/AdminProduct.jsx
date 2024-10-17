@@ -1,19 +1,33 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import conf from "../conf/conf";
+import ProductRow from "./ProductRow";
+import database from "../backend/DataBase";
 
 function AdminProduct() {
 
     const userData = useSelector((state) => state.authReducer.userData);
 
+    const [products,setProducts] = useState([])
+
     const navigate = useNavigate()
+
+    async function loadProducts() {
+      const _products = await database.getProducts();
+
+      setProducts(_products.documents)
+    }
   
-    useEffect(() => {
+    useEffect(async () => {
       if (userData.$id != conf.adminId) {
         alert("you are not admin")
         navigate("/")
       }
+
+      loadProducts()
+
+
     }, [userData])
 
   return (
@@ -24,22 +38,9 @@ function AdminProduct() {
       </h1>
     </div>
     <div className="border-2 border-black p-5 flex flex-col gap-3">
-      <div className="w-full p-3 text-2xl rounded-md bg-white shadow-2xl flex justify-between">
-        <h1>
-          Product1
-        </h1>
-        <div>
-          category
-        </div>
-        <div className="flex gap-2">
-          <button className="bg-lime-800 text-lg p-2 text-white rounded-lg">
-            EDIT
-          </button>
-          <button className="bg-red-600 text-lg p-2 text-white rounded-lg">
-            DEL
-          </button>
-        </div>
-      </div>
+      {products.map((product)=>{
+          return <ProductRow name={product.product_name} categ={product.product_category}/>
+      })}
 
       <div className="p-3 w-full flex justify-center">
           <button onClick={()=>navigate("/admin/addproducts")} className="bg-amber-400 p-3 rounded-xl text-white">

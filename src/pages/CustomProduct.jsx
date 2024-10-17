@@ -4,7 +4,6 @@ import Product from '../component/Product'
 import database from '../backend/DataBase';
 import { Query } from 'appwrite';
 import loading from "../assets/loading.gif"
-import { name } from 'thirdweb/extensions/common';
 
 function CustomProduct() {
 

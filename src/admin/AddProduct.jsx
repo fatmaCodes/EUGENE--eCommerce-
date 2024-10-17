@@ -11,7 +11,7 @@ function AddProduct() {
 
     const navigate = useNavigate();
 
-    const {handleSubmit,register} = useForm()
+    const {handleSubmit,register,reset} = useForm()
 
     useEffect(() => {
       if (userData.$id != conf.adminId) {
@@ -29,8 +29,9 @@ function AddProduct() {
             const imgId = img.$id
             const newProduct = await database.addProduct({...data,product_image:imgId})
             if (newProduct) {
+                reset(data)
                 alert("product added succesfully!");
-                navigate("/admin/addproducts")
+                navigate("/admin/categories")
             }else{
                 alert("failed to add try again!");
             }
