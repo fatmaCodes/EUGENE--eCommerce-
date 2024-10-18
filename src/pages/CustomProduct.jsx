@@ -14,7 +14,7 @@ function CustomProduct() {
 
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  const queries = [Query.equal("product_category",categ)];
+  const queries =  categ!="all" ? [Query.equal("product_category",categ)] : [Query.limit(5000)];
 
   async function productsLoad() {
     setIsDialogOpen(true);
@@ -48,9 +48,7 @@ function CustomProduct() {
         <div className='w-full p-4 flex flex-wrap justify-center'>
           
           {products.length>0?(products.map((product) => {
-            console.log(product);
-            
-            return <Product id={product.$id} name={product.product_name} price={product.price} img_id={product.product_image}/>
+            return <Product key={product.$id} id={product.$id} name={product.product_name} price={product.price} img_id={product.product_image}/>
           })):(
             <h1>
               NO PRODUCTS AVAILABLE FOR THIS CATEGORY RIGHT NOW

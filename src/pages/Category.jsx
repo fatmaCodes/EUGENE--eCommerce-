@@ -37,9 +37,9 @@ function CategoryPage() {
         </div>
         <div className="w-full p-2 h-[25%] flex gap-16 justify-center">
           <Card img={silver} text="GREY & SILVER" categ="silver"/>
-          <Card img={black} text="BLACK" categ=""/>
-          <Card img={haircare} text="MAINTENANCE" categ="black"/>
-          <Card img={all} />
+          <Card img={black} text="BLACK" categ="black"/>
+          <Card img={haircare} text="MAINTENANCE" categ="haircare"/>
+          <Card img={all} categ="all"/>
         </div>
 
         <div className="border-t-2 border-l-sky-100 p-3">

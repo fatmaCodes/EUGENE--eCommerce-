@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import conf from "../conf/conf";
 import ProductRow from "./ProductRow";
 import database from "../backend/DataBase";
+import { Query } from "appwrite";
 
 function AdminProduct() {
 
@@ -14,7 +15,7 @@ function AdminProduct() {
     const navigate = useNavigate()
 
     async function loadProducts() {
-      const _products = await database.getProducts();
+      const _products = await database.getProducts([Query.limit(5000)]);
 
       setProducts(_products.documents)
     }
@@ -37,9 +38,9 @@ function AdminProduct() {
         OUR PRODUCTS
       </h1>
     </div>
-    <div className="border-2 border-black p-5 flex flex-col gap-3">
+    <div className="border-2 border-black p-5 flex flex-col gap-3 overflow-scroll">
       {products.map((product)=>{
-          return <ProductRow name={product.product_name} categ={product.product_category}/>
+          return <ProductRow key={product.$id} name={product.product_name} categ={product.product_category} id={product.$id} img_id={product.product_image}/>
       })}
 
       <div className="p-3 w-full flex justify-center">
