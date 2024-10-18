@@ -8,7 +8,7 @@ function Cart() {
     },[])
 
   return (
-    <div>Cart</div>
+    <div><center>This Page is Under Maintenance</center></div>
   )
 }
 

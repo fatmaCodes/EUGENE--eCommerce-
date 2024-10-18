@@ -8,7 +8,7 @@ function WishList() {
   },[])
 
   return (
-    <div>This is wishlist page</div>
+    <div><center>This Page is Under Maintenance</center></div>
   )
 }
 
