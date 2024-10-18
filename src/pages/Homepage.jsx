@@ -3,6 +3,7 @@ import Herosec from "../component/Herosec";
 import Product from "../component/Product";
 import changeLink from "../component/Navbar/changeLink";
 import { useSelector } from "react-redux";
+import cherry from "../assets/cherry.png";
 
 
 
@@ -24,12 +25,12 @@ function Homepage() {
       price: 450
     },
     {
-      img: "https://www.birdsofparadyes.com/cdn/shop/files/1a_8d9b3d60-5671-4d2a-b771-2a0f9d034f3b.png?v=1725526247&width=823",
+      img:{cherry},
       name: "Ruby Rush Glossy Hair Tint",
       price: 500
     },
     {
-      img: "https://www.birdsofparadyes.com/cdn/shop/files/1a_8077b16f-8bb5-4382-b3be-0c210f7f5137.png?v=1725525975&width=823",
+      img: {cherry},
       name: "Cherry Coke Glossy Hair Tint",
       price: 200
     }
@@ -50,7 +51,7 @@ function Homepage() {
         </div>
         <div className="flex flex-col items-center">
           <h1 className="text-4xl">
-            OUR PRODUCTS
+            OUR BESTSELLERS
           </h1>
           <div className="flex justify-around gap-4 p-3">
             {products.map((product) => {
