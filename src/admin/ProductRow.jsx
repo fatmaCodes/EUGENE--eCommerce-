@@ -1,6 +1,6 @@
 import database from "../backend/DataBase"
 
-function ProductRow({name,categ,id,img_id}) {
+function ProductRow({index,name,categ,id,img_id}) {
 
   async function delProduct(id,img_id){
     const answer = window.confirm("are you sure ?")
@@ -16,6 +16,7 @@ function ProductRow({name,categ,id,img_id}) {
   return (
     <div className="w-full p-3 text-2xl rounded-md bg-white shadow-2xl flex justify-between">
     <h1>
+      {`${index}. `}
       {name}
     </h1>
     <div>
