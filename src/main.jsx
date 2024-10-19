@@ -17,6 +17,7 @@ import Root from './Root.jsx'
 import AdminProduct from './admin/AdminProduct.jsx'
 import AddProduct from './admin/AddProduct.jsx'
 import ProductPage from './pages/ProductPage.jsx'
+import AddCategory from './admin/AddCategory.jsx'
 
 
 const router = createBrowserRouter([
@@ -91,6 +92,13 @@ const router = createBrowserRouter([
             path:"/admin/addproducts",
             element:<AuthLayout>
               <AddProduct/>
+            </AuthLayout>
+
+          }, 
+          {
+            path:"/admin/addcategories",
+            element:<AuthLayout>
+              <AddCategory/>
             </AuthLayout>
 
           }

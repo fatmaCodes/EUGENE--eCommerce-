@@ -34,9 +34,12 @@ function Admin() {
               <h1 className="p-2 text-2xl font-serif text-white border-blue-400 border-b-2">MANAGE</h1>
             </div>
             <div className="p-3">
-              <ul className="flex pl-10 text-xl text-white list-disc">
+              <ul className="flex pl-10 text-xl text-white list-disc flex-col gap-2">
                 <li>
                   <Link to={"/admin/categories"} className="hover:cursor-pointer">Products</Link>
+                </li>
+                <li>
+                  <Link to={"/admin/addcategories"} className="hover:cursor-pointer">addCategory</Link>
                 </li>
               </ul>
             </div>

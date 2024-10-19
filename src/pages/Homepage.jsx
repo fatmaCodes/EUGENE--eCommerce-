@@ -26,13 +26,11 @@ function Homepage() {
     loadProducts();
   }, [])
   
-
-  if (userStatus) {
     return (
       <div className="flex flex-col gap-4 justify-start items-center">
         
         <div className="my-8">
-        <h1 className="text-2xl text-slate-50 ">Hey , {userData.name}</h1>
+        <h1 className="text-2xl text-slate-50 ">{userData?`Hey , ${userData?.name}`:""}</h1>
           <Herosec />
         </div>
         <div className="flex flex-col items-center">
@@ -48,13 +46,6 @@ function Homepage() {
 
       </div>
     )
-  } else {
-    return (
-      <div className="h-[80vh] w-full flex flex-col gap-4 justify-center items-center text-5xl text-slate-50">
-        PLEASE LOGIN / SIGN UP TO CONTINUE
-      </div>
-    )
-  }
 
 }
 
