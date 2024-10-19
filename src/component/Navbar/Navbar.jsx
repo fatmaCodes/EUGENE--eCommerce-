@@ -50,7 +50,7 @@ function Navbar() {
 
                                     </li>
                                     <li>
-                                        <button onClick={userStatus?handleLogout:navigate("/login")} className="block py-2 px-3 text-slate-900 bg-blue-700 rounded md:bg-transparent md:p-0 dark:bg-blue-600 md:dark:bg-transparent" id="login">{userStatus?"logout":"login"}</button>
+                                        <button onClick={userStatus?handleLogout:()=>navigate("/login")} className="block py-2 px-3 text-slate-900 bg-blue-700 rounded md:bg-transparent md:p-0 dark:bg-blue-600 md:dark:bg-transparent" id="login">{userStatus?"logout":"login"}</button>
                                     </li>
                                     <li>
                                         <Link to={"/categories"} className="block py-2 px-3 text-slate-900 bg-blue-700 rounded md:bg-transparent md:p-0 dark:bg-blue-600 md:dark:bg-transparent" id="category">Categories</Link>
