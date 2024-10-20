@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import database from "../backend/DataBase"
 import conf from "../conf/conf";
 import { useForm } from "react-hook-form";
+import { Query } from "appwrite";
 
 function AddProduct() {
 
@@ -13,12 +14,14 @@ function AddProduct() {
 
     const {handleSubmit,register,reset} = useForm()
 
-    useEffect(() => {
-      if (userData.$id != conf.adminId) {
-        alert("you are not admin")
-        navigate("/")
-      }
-    }, [userData])
+    const [categories,setCategory] = useState([])
+
+    async function loadCategories() {
+      const _category = await database.getCategories([Query.limit(5000)]);
+
+      setCategory(_category.documents)
+    }
+  
 
     async function handleAddProduct(data){
         
@@ -42,6 +45,16 @@ function AddProduct() {
         }
 
     }
+
+
+    useEffect(() => {
+        if (userData.$id != conf.adminId) {
+          alert("you are not admin")
+          navigate("/")
+        }
+        loadCategories()
+      }, [userData])
+  
 
   return (
     <div className="flex-grow">
@@ -68,27 +81,11 @@ function AddProduct() {
             <div className="p-2 flex gap-2 items-center">
                 <label htmlFor="categ">PRODUCT CATEGORY:</label>
                 <select name="categ" id="" className="p-3" {...register("product_category", { required: true })}>
-                    <option value="blonde">
-                        BLONDES
+                   {categories.map((category)=>(
+                    <option key={category.$id} value={category.category_name}>
+                        {category.category_text}
                     </option>
-                    <option value="fantasy">
-                        FANTASY
-                    </option>
-                    <option value="brown">
-                        BROWN
-                    </option>
-                    <option value="red">
-                        REDS
-                    </option>
-                    <option value="silver">
-                        SILVER
-                    </option>
-                    <option value="black">
-                        BLACK
-                    </option>
-                    <option value="haircare">
-                        HAIRCARE
-                    </option>
+                   ))}
                 </select>
             </div>
             <div className="p-4">

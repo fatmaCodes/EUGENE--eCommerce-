@@ -8,6 +8,8 @@ function Card({img,text,categ}) {
   const handleClick = ()=>{
     navigate(`/categories/${categ}`)
   }
+  
+  
 
 
   return (

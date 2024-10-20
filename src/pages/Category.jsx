@@ -1,11 +1,3 @@
-import Card from "../component/Card"
-import Blonde from '../assets/blondeHead.jpg'
-import brownn from "../assets/brownn.png"
-import reds from "../assets/reds.png"
-import silver from "../assets/silver.png"
-import fantasy from "../assets/fantasy.png"
-import black from "../assets/black.png"
-import haircare from "../assets/haircare.png"
 import all from "../assets/all.png"
 import port from "../assets/port.png"
 import stream from "../assets/stream.png"
@@ -14,12 +6,26 @@ import help from "../assets/help.png"
 import gift from "../assets/gift.png"
 import { useEffect } from "react"
 import changeLink from "../component/Navbar/changeLink"
+import { useState } from "react"
+import Card from "../component/Card"
+import database from "../backend/DataBase"
+import { Query } from "appwrite"
 
 function CategoryPage() {
   
+
+  const [categories,setCategory] = useState([])
+
+  
+  async function loadCategories() {
+    const _category = await database.getCategories([Query.limit(5000)]);
+
+    setCategory(_category.documents)
+  }
   
   useEffect(()=>{
-    changeLink("#category")
+    changeLink("#category");
+    loadCategories();
   },[])
   
   
@@ -29,19 +35,18 @@ function CategoryPage() {
         <h1 className="text-slate-100 ">
           <b> COLOR FAMILY </b>
         </h1>
-        <div className="w-full p-2 h-[25%] flex gap-16 justify-center">
-          <Card img={Blonde} text="BLONDES"  categ="blonde"/>
-          <Card img={fantasy} text="FANTASY SHADES" categ="fantasy"/>
-          <Card img={brownn} text="BROWNS" categ="brown"/>
-          <Card img={reds} text="REDS & PLUMS" categ="red"/>
-        </div>
-        <div className="w-full p-2 h-[25%] flex gap-16 justify-center">
-          <Card img={silver} text="GREY & SILVER" categ="silver"/>
-          <Card img={black} text="BLACK" categ="black"/>
-          <Card img={haircare} text="MAINTENANCE" categ="haircare"/>
-          <Card img={all} categ="all"/>
-        </div>
+        <div className="w-full flex justify-center items-center">
 
+        <div className='w-[70%] p-4 flex flex-wrap gap-5'>
+          
+          {(categories.map((category) => {
+            const img = database.getFilePreview(category.category_image)
+            return <Card key={category.$id}  categ={category.category_name} text={category.category_text} img={img}/>
+          }))}
+           <Card img={all} categ="all"/>
+        </div>
+        </div>
+     
         <div className="border-t-2 border-l-sky-100 p-3">
             <h1 className="w-full text-center text-slate-100 ">
               MORE

@@ -18,6 +18,7 @@ import AdminProduct from './admin/AdminProduct.jsx'
 import AddProduct from './admin/AddProduct.jsx'
 import ProductPage from './pages/ProductPage.jsx'
 import AddCategory from './admin/AddCategory.jsx'
+import AddCategoryForm from './admin/AddCategoryForm.jsx'
 
 
 const router = createBrowserRouter([
@@ -51,14 +52,17 @@ const router = createBrowserRouter([
           {
             path: "/wishlist",
             element: 
+            <AuthLayout>
               <Wishlist />
+              </AuthLayout>
            
           },
           {
             path: "/cart",
             element: 
+            <AuthLayout>
               <Cart />
-
+            </AuthLayout>
           },
           {
             path: "/categories/:categ",
@@ -93,6 +97,13 @@ const router = createBrowserRouter([
             path:"/admin/addcategories",
             element:<AuthLayout>
               <AddCategory/>
+            </AuthLayout>
+
+          },
+          {
+            path: "/admin/addCategoryForm",
+            element: <AuthLayout>
+              <AddCategoryForm />
             </AuthLayout>
 
           }

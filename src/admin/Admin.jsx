@@ -39,7 +39,7 @@ function Admin() {
                   <Link to={"/admin/categories"} className="hover:cursor-pointer">Products</Link>
                 </li>
                 <li>
-                  <Link to={"/admin/addcategories"} className="hover:cursor-pointer">addCategory</Link>
+                  <Link to={"/admin/addcategories"} className="hover:cursor-pointer">Categories</Link>
                 </li>
               </ul>
             </div>
